@@ -1,0 +1,10 @@
+#Add kafka to PATH varaible (starting service for the first time)
+echo 'PATH="$PATH:~/kafka_2.13-3.0.0/bin"' >> ~/.bashrc
+
+#Start Zookeeper in new terminal
+
+~/kafka_2.13-3.0.0/bin/zookeeper-server-start.sh ~/kafka_2.13-3.0.0/config/zookeeper.properties
+
+#Start Apache Kafka in new terminal
+
+~/kafka_2.13-3.0.0/bin/kafka-server-start.sh ~/kafka_2.13-3.0.0/config/server.properties

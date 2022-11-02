@@ -1,0 +1,17 @@
+Vagrant.configure("2") do |config|
+  config.hostmanager.enabled = true 
+  config.hostmanager.manage_host = true
+  
+### Kafka VM ###
+  config.vm.define "kafka" do |kafka|
+    kafka.vm.box = "ubuntu/bionic64"
+    kafka.vm.hostname = "kafka"
+	kafka.vm.network "private_network", ip: "192.168.56.15"
+	kafka.vm.provider "virtualbox" do |vb|
+     vb.memory = "3072"
+	 vb.cpus = 2
+	 end
+	kafka.vm.provision "shell", path: "kafka.sh"
+  end
+
+end
